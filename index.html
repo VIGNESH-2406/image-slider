@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href=" style.css" />
+    <title>FullScreen slider</title>
+  </head>
+  <body>
+
+    <div class ="wrap">
+        <div id ="arrow-left" class ="arrow"></div>
+        <div id="slider">
+             <div class ="slide slide0">
+                <div class ="slide-content ">
+                    <span> And</span>
+                </div>
+            </div>
+            <div class ="slide slide1">
+                <div class ="slide-content ">
+                    <span> We </span>
+                </div>
+            </div>
+            <div class ="slide slide2">
+                <div class ="slide-content ">
+                    <span>Are</span>
+                </div>
+            </div>
+            <div class ="slide slide3">
+                <div class ="slide-content ">
+                    <span>At </span>
+                </div>
+            </div>
+            <div class ="slide slide4">
+                <div class ="slide-content ">
+                    <span>the World's </span>
+                </div>
+            </div>
+            <div class ="slide slide5">
+                <div class ="slide-content ">
+                    <span> very</span>
+                </div>
+            </div>
+            <div class ="slide slide6">
+                <div class ="slide-content ">
+                    <span>Best</span>
+                </div>
+            </div>
+             <div class ="slide slide8">
+                <div class ="slide-content ">
+                    <span> Place</span>
+                </div>
+            </div>
+            <div class ="slide slide9">
+                <div class ="slide-content ">
+                    <span> VENICE</span>
+                </div>
+            </div>
+        </div>
+    <div id= "arrow-right" class="arrow"></div>
+
+
+<script>
+
+let sliderImages= document.querySelectorAll('.slide'),
+    arrowLeft=document.querySelector('#arrow-left'),
+    arrowRight= document.querySelector('#arrow-right'),
+    current= 0,
+    paused = false;
+
+    // to clear all images
+    function reset(){
+        for(let i=0;i<sliderImages.length;i++){
+            sliderImages[i].style.display='none';
+        }
+    }
+//init slider
+    function startSlide(){
+        reset();
+        sliderImages[0].style.display="block"
+    }
+
+
+    //show prev
+    function slideLeft(){
+       reset();
+         if(current===0){
+            current=sliderImages.length-1;
+        }
+       sliderImages[current].style.display ='block';
+       onHover(sliderImages[current])
+       current--;
+    }
+
+
+    //show next
+     function slideRight(){
+      
+       if(!paused) {
+            reset();
+             if(current===sliderImages.length){
+            current= 0;
+        }
+       sliderImages[current].style.display ='block';
+       onHover(sliderImages[current])
+       current++
+
+       }
+        
+    }
+
+    // left arrow click
+    arrowLeft.addEventListener('click', function(){
+        // if(current===0){
+        //     current=sliderImages.length-1;
+        // }
+        slideLeft()
+    });
+
+
+
+     // RIGHT arrow click
+    arrowRight.addEventListener('click', function(){
+        // if(current===sliderImages.length-1){
+        //     current= 0;
+        // }
+        slideRight();
+    });
+
+    function onHover(image){
+        image.addEventListener('mouseover',() => {
+            //clearInterval(timer)
+            paused = true;
+        })
+        image.addEventListener('mouseleave',() => {
+            //setInterval(slideRight,2000)
+            paused = false;
+        })
+    }
+
+    startSlide();
+    let timer = setInterval(slideRight,2000)
+
+
+</script>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+body,
+#slider,
+.wrap,
+.slide-content {
+  margin: 300;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  height: 88vh;
+  overflow-x: hidden;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+
+.wrap {
+  position: relative;
+}
+
+.slide {
+  width: 100%;
+  margin-top: 0px;
+  background-size: 1700px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.slide0 {
+  background-image: url("imagess/img0.jpg");
+}
+.slide1 {
+  background-image: url("imagess/img1.jpg");
+}
+.slide2 {
+  background-image: url("imagess/img2.jpg");
+}
+.slide3 {
+  background-image: url("imagess/img3.jpg");
+}
+.slide4 {
+  background-image: url("imagess/img4.jpg");
+}
+.slide5 {
+  background-image: url("imagess/img5.jpg");
+}
+.slide6 {
+  background-image: url("imagess/img6.jpg");
+}
+.slide8 {
+  background-image: url("imagess/img8.jpg");
+}
+.slide9 {
+  background-image: url("imagess/img9.jpg");
+}
+
+.slide-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.slide-content span {
+  font-size: 5rem;
+  color: aliceblue;
+}
+
+.arrow {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  margin-top: -30px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+#arrow-left {
+  border-width: 30px 40px 30px 0;
+  border-color: transparent rgb(158, 68, 68) transparent transparent;
+  left: 0;
+  margin-left: 30px;
+}
+
+#arrow-right {
+  border-width: 30px 0 30px 40px;
+  border-color: transparent transparent transparent rgb(76, 164, 190);
+  right: 0;
+  margin-right: 20px;
+}
